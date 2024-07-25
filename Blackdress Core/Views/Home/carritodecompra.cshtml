@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "carritodecompra";
+}
+<h1 class="h1">Carrito de Compra</h1>
+<br>
+<table class="table table-primary">
+    <tr>
+        <td scope="col">Nombre Producto</td>
+        <td scope="col">Talla</td>
+        <td scope="col">Color</td>
+        <td scope="col">precio</td>
+    </tr>
+    @Html.Raw(ViewBag.tabla)
+    @Html.Raw(ViewBag.tr)
+    <tr>
+        <td scope="colgroup">SubTotal: @ViewBag.subtotal</td>
+    </tr>
+</table>
+<button class="btn btn-outline-info" style="color:black;">Chequear disponibilidad</button>
+<br>
+<form class="form-check table-info" action="/CarritoCompra/CrearBoleta" method="post" target="_blank">
+    <table class="table table-info">
+        <tr class="table-info">
+            <td class="table-info">Envio y entrega</td>
+            <td class="table-info">Precio</td></tr>
+        <tr class="table-ight">
+            <td class="table-info">
+                <select class="form-select">
+                    <option>Retiro en tienda</option>
+                    <option>Chilexpress</option>
+                    <option>Starken</option>
+                </select>
+            </td>
+            <td class="table-info">$</td>
+        </tr>
+    </table>
+    <input type="hidden" name="ordendecompra" value="@ViewBag.nroOrden" />
+    <input type="hidden" name="medidascorporales" value="@ViewBag.medidascorp" />
+    <label class="form-label">Rut</label>
+    <br />
+    <input class="form-control" type="text" name="rut" placeholder="sin puntos ni guion ej: 12345678-9" maxlength="10" required/>
+    <br>
+    <label class="form-label">Correo Electronico</label>
+    <br />
+    <input class="form-control" type="email" name="email" required />
+    <input type="hidden" name="estadoconfeccion" value="@ViewBag.estadoconfeccion" />
+    <input type="hidden" name="fechaestimada" value="@ViewBag.fechaestimada"/>
+    <input type="hidden" name="valorcotizacion" value="@ViewBag.precio"/>
+    <input type="hidden" name="fechasolicitud" value="@ViewBag.fechacotizacion" />
+    <input type="hidden" name="tallas" value="@ViewBag.talla" />
+    <input type="hidden" name="color" value="@ViewBag.color"/>
+    <input type="hidden" name="nombre_producto" value="@ViewBag.nombreproducto"/>
+    <br>
+    <input type="submit" class="btn btn-outline-success" name="GeneraOrden" value="Generar Orden">
+</form>

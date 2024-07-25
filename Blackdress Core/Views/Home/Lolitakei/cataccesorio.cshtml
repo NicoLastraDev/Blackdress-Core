@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "cataccesorio";
+}
+
+<h1 class="h1">
+    The Wizarded Cat Lolita Accessories
+</h1>
+<br>
+<figure class="figure ">
+    <img src="~/img/lolita/The wizarded cat lolita accesories/1157b09554.jpg" class="figure-img img-fluid rounded">
+    <img src="~/img/lolita/The wizarded cat lolita accesories/73c58ab641.jpg" class="figure-img img-fluid rounded">
+</figure>
+<br>
+<!--formulario para cotizar producto-->
+<form method="post" action="/CarritoCompra/agregaralcarrito">
+    <input type="text" name="nombre_producto" value="Cintillo orejas de gato plush" readonly />
+    <p>Precio</p>
+    <input type="number" name="precio" value="9990" readonly />
+    <p>Tamaño</p>
+    <input type="text" placeholder="que talla eres?" name="talla" value="U" readonly />
+    <p>color</p>
+    <input type="text" placeholder="Color" name="color" required>
+    <br>
+    <p>Informacion adicional</p>
+    <input type="text" name="medidasCorporales" placeholder="Medidas especiales o telas distintas" value="Nothing" readonly/>
+    <br>
+    <p>Costos de envio: RM: $7.990, Regiones: 15.990</p>
+    <br>
+    <p>Entrega:</p>
+    <br>
+    <p>15 dias habiles</p>
+    <input type="submit" class="btn btn-success" value="Agregar al carrito">
+</form>
+
+<br>
+

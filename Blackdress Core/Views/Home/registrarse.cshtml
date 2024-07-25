@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "registrarse";
+}
+<script type="text/javascript">
+    var resp1 = "@ViewBag.mensaje";
+    var resp2 = "@ViewBag.state";
+    var sw = "@ViewBag.sw";
+    if (sw=="OK") {
+        alert(sw + " - " + resp1 + " - " + resp2);
+    }
+    else
+    {
+        alert("No se ha podido Registrar usuario, Rut incorrecto");
+    }
+</script>
+<h1 class="h1 text-center" >Registrarse</h1>
+<h2 style="color: blue; font-family: 'Comic Sans MS'; animation-duration: initial; background-color: black;">@ViewBag.state @ViewBag.mensaje</h2>
+<hr />
+
+<div class="container">
+    <div class="table-light">
+    <form method="post" action="/indice/register">
+        <div>
+            <label class="form-label">E-mail: </label>
+        <input class="form-control" type="email" name="mail" required max="50" id="mail" />
+        
+        <label class="form-label">Nombre de usuario: </label>
+        <input type="text" class="form-control" name="user" required max="20" id="user" />
+        
+        <label class="form-label">Nombre Y Apellido: </label>
+        <input type="text" class="form-control" name="apellido" required max="50" id="apellido" />
+        
+        <label class="form-label">Rut:</label>
+        <input type="text" class="form-control" placeholder="11111111-1" name="rut" required maxlength="10" id="rut" />
+        
+        <label class="form-label">Contraseña: </label>
+        <input type="password" class="form-control" required max="8" name="pass" maxlength="8" id="password" />
+      
+        <input type="submit" class="btn btn-outline-primary m-1 btn-block" value="Registrarse" />
+        </div>
+</form>
+</div>
+</div>

@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Bodega";
+}
+
+<br>
+<hr />
+<div class="row justify-content-center">
+    <table class="table-secondary table-bordered text-center "  border="1">
+        <tr class="table-primary" border="1">
+            <td>Nombre Material</td>
+            <td>Color</td>
+            <td>Stock</td>
+        </tr>
+        @Html.Raw(ViewBag.stock)
+    </table>
+    </div>
+    <br>
+    <form method="post" action="/AdministracionStock/updateStock" class="input-group-prepend">
+        <input type="hidden" name="nombreprod" value="@ViewBag.nombreproducto" />
+        <input type="hidden" name="color" value="@ViewBag.color" />
+        <input type="hidden" name="cantidad" value="@ViewBag.cantidad" />
+        <button type="submit" class="btn btn-primary btn-lg m-3 cen">Actualizar stock </button>
+    </form>
+
+    <form method="get" action="/AdministracionStock/MostrarStock">
+        <button type="submit" class="btn btn-primary btn-lg m-3 cen">Mostrar stock</button>
+    </form>

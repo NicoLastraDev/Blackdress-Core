@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewData["Title"] = "Pedidosproveedores";
+}
+
+<h1 class="h4 text-center mb-3" >Pedidos proveedores</h1>
+
+<form name="formproveedores" method="get" action="/AdministracionStock/cargaGD" class="form-group btn-group-lg bg-info">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <label class="text-left">Rut Proveedor</label>
+                <input type="text" class="form-control  w-75 mb-3" name="rut" value="@ViewBag.rut" readonly />
+
+            </div>
+            <div class="col-md-6">
+                <label class="text-left">Proveedor:</label>
+                <select class="form-control w-75  mb-3" name="proveedores">
+                    <option name="Nombre" value="Goth and Telas">Goth and Telas</option>
+                    <option name="Nombre" value="Telas Maricio">Telas Maricio</option>
+                    <option name="Nombre" value="Supertelas">Supertelas</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="text-left">Descripcion:</label>
+                <select class="form-control  w-75  mb-3" name="descripcion">
+                    <option name="Descripcion" value="Telas especializadas en prendas goticas y estilos alternativos">Telas especializadas en prendas goticas y estilos alternativos</option>
+                    <option name="Descripcion" value="Telas X mayor">telas por mayor</option>
+                    <option name="Descripcion" value="Telas rigidas">telas rigidas</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="text-left">Nombre del producto</label>
+                <select class="form-control  w-75  mb-3" name="Nombreproducto">
+                    <option name="Nombre_producto" value="SATIN RASO">SATIN RASO</option>
+                    <option name="Nombre_producto" value="CUADRILLE">CUADRILLE</option>
+                    <option name="Nombre_producto" value="LATEX">LATEX</option>
+                    <option name="Nombre_producto" value="BISTRECH">BISTRECH</option>
+                    <option name="Nombre_producto" value="LONA">LONA</option>
+                    <option name="Nombre_producto" value="LYCRA DUPONT">LYCRA DUPONT</option>
+                    <option name="Nombre_producto" value="POLYESTER">POLYESTER</option>
+                    <option name="Nombre_producto" value="LINO">LINO</option>
+                    <option name="Nombre_producto" value="FRANELA">FRANELA</option>
+                    <option name="Nombre_producto" value="TEJIDO TR">TEJIDO TR</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="text-left">Color</label>
+                <input type="text" class="form-control w-75  mb-3" name="color" value="@ViewBag.color" required />
+
+            </div>
+            <div class="col-md-6">
+                <label class="text-left">Cantidad (M2)</label>
+                <input type="number" class="form-control w-75  mb-3" name="cantidad" value="@ViewBag.cantidad" required />
+
+            </div>
+            <div class="col-md-6">
+                <label class="text-left">Precio Unitario</label>
+                <input type="number" class="form-control w-75  mb-3" name="PrecioUnitario" value="@ViewBag.precioUnitario" readonly />
+
+            </div>
+            <div class="col-md-6">
+                <label class="text-left">Iva</label>
+                <input type="number" class="form-control w-75  mb-3" name="Iva" value="@ViewBag.iva" readonly />
+
+            </div>
+            <div class="col-md-6">
+                <label class="text-left">Total</label>
+                <input type="number" class="form-control w-75  mb-3" name="Total" value="@ViewBag.total" readonly />
+            </div>
+        </div>
+    </div>
+    <div class="col text-center">
+        <button type="submit" class="btn btn-primary btn-lg m-3 cen">Cargar Guia</button>
+        </div>
+</form>
+
+<div class="mb-3">
+    <form method="get" action="/AdministracionStock/GenPedido" target="_blank">
+    <input type="hidden" name="rutprov" value="@ViewBag.rut" />
+    <input type="hidden" name="proveedores" value="@ViewBag.nombreprov" />
+    <input type="hidden" name="descripcion" value="@ViewBag.descripcion" />
+    <input type="hidden" name="precioU" value="@ViewBag.precioUnitario" />
+    <input type="hidden" name="cantidad" value="@ViewBag.cantidad" />
+    <input type="hidden" name="iva" value="@ViewBag.iva" />
+    <input type="hidden" name="totalapagar" value="@ViewBag.total" />
+    <input type="hidden" name="nrodeguia" value="@ViewBag.gd" />
+    <input type="hidden" name="nombreprod" value="@ViewBag.nombreproducto" />
+    <input type="hidden" name="color" value="@ViewBag.color" />
+    <input type="submit" value="Generar Pedido" class="btn btn-primary"/>
+</form>
+<div class="alert alert-success" role="alert">
+ <p class="col-form-label-lg">Se ha generado guia de despacho: @ViewBag.gd</p>
+</div>
+</div>
+
+
+
+<hr class="mt-5 mb-5 " style="visibility: hidden; ">
+<hr class="mt-5 mb-5" style="visibility: hidden; ">
+<hr class="mt-5 mb-5" style="visibility: hidden; ">
